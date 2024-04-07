@@ -18,5 +18,11 @@
             window.Width = 600;
             return window;
         }
+
+        // change this method to return true to see debug messages
+        public static bool DebugMessagesOn()
+        {
+            return true;
+        }
     }
 }

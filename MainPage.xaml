@@ -13,9 +13,12 @@
                 Style="{StaticResource Headline}"
                  />
 
-            <Entry
+            <Editor
                 x:Name="txtData"
                 Placeholder="data you want to encrypt"
+                MaxLength="1000"
+                HeightRequest="100"
+                AutoSize="TextChanges"
                 />
 
             <Button
@@ -23,12 +26,22 @@
                 Text="Encrypt and Save" 
                 Clicked="OnActionClick"
                 HorizontalOptions="Fill" />
-
             <Label 
                 x:Name="lblEncrypted"
                 />
             <Label 
                 x:Name="lblDecrypted"
+            />
+            <Label 
+                x:Name="lblFileLocation"
+            />
+            <Label
+                Text="Developed by Steven Motz"
+                TextColor="Gray"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="End"
+                VerticalOptions="End" 
+                HeightRequest="200"
             />
         </VerticalStackLayout>
     </ScrollView>

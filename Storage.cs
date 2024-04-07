@@ -10,20 +10,47 @@ namespace EncryptionApp
         // Saves a string to a file
         internal static void SaveString(string text, string path)
         {
-            File.WriteAllText(GetPath(path), text);
+            try
+            {
+                File.WriteAllText(GetPath(path), text);
+            }
+            catch (Exception e)
+            {
+                if (App.DebugMessagesOn())
+                    Console.WriteLine("Error: " + e.Message);
+            }
         }
 
         // Reads the contents of a file and returns it as a string
         internal static string GetString(string path)
         {
-            return File.ReadAllText(GetPath(path));
+            try
+            {
+                return File.ReadAllText(GetPath(path));
+            }
+            catch (Exception e)
+            {
+                if (App.DebugMessagesOn())
+                    Console.WriteLine("Error: " + e.Message);
+                return null;
+            }
         }
 
         // Gets the path of the executable and combines it with the file name
         private static string GetPath(string fileName)
         {
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            return Path.Combine(baseDirectory, fileName);
+            try
+            {
+                string appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                string withAppName = Path.Combine(appData, "EncryptionApp");
+                Directory.CreateDirectory(withAppName);
+                return Path.Combine(withAppName, fileName);
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
         }
     }
 }
