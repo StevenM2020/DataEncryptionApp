@@ -1,4 +1,9 @@
-﻿using System.Security.Cryptography;
+﻿// Class:       Encryption
+// Author:      Steven Motz
+// Date:        4/6/2024
+// Description: This class provides methods for encrypting and decrypting strings using the AES algorithm
+
+using System.Security.Cryptography;
 
 namespace EncryptionApp
 {
