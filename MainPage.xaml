@@ -11,7 +11,7 @@
             <Label
                 Text="Data Encryption App"
                 Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+                 />
 
             <Entry
                 x:Name="txtData"
@@ -21,9 +21,15 @@
             <Button
                 x:Name="btnAction"
                 Text="Encrypt and Save" 
-                SemanticProperties.Hint="Click the button!"
                 Clicked="OnActionClick"
                 HorizontalOptions="Fill" />
+
+            <Label 
+                x:Name="lblEncrypted"
+                />
+            <Label 
+                x:Name="lblDecrypted"
+            />
         </VerticalStackLayout>
     </ScrollView>
 
